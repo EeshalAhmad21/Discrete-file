@@ -1,0 +1,37 @@
+#include<iostream>
+#include<sstream>
+#include<fstream>
+using namespace std;
+int main(){
+const int mp = 200;
+string ab[mp][2];
+int a = 0;
+for (int i = 0; i < SIZE; i++) {
+    for (int j = 0; j < 5; j++) {
+        string f1 = st[i];
+        string f2 = f[i][j];
+        if (!f1.empty()) {
+            bool issymmetric = false;
+            for (int k = 0; k < SIZE; k++) {
+                for (int l = 0; l < 5; l++) {
+                    if (f[k][l] == f1 && st[k] == f2) {
+                        issymmetric = true;
+                        break;
+                    }
+                }
+                if (issymmetric) break;
+            }
+            if (!issymmetric) {
+                ab[a][0] = f1;
+                ab[a][1] = f2;
+                a++;
+            }
+        }
+    }
+}
+for (int i = 0; i < a; i++) {
+    cout << "(" << ab[i][0] << "," << ab[i][1] << ")" << endl;
+}
+return 0;
+
+}
