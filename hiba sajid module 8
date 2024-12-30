@@ -1,0 +1,44 @@
+#include<iostream>
+#include<fstream>
+#include<sstream>
+#include<string>
+using namespace std;
+int main(){
+    const int SIZE=40;  
+    string st[SIZE];
+    string f[SIZE][5];
+    int fC[SIZE]={0}; 
+    int maxFriends=0;
+    ifstream in("Friends Dataset.csv");  
+    for (int i=0;i<SIZE;i++){
+    string line;
+    getline(in, line);
+    stringstream ss(line); 
+    getline(ss,st[i],',');
+    for (int j=0;j<5;j++){
+    getline(ss,f[i][j],',');
+}
+    }
+ for(int i=0;i<SIZE;i++){
+  for(int j=0;j<SIZE;j++){
+   for (int k=0;k<5;k++){
+    for (int l=0;l<5;l++){
+    if (f[i][k]==f[j][l]){
+    fC[i]++;
+    break;
+ }
+}
+}
+
+}
+}
+string bcp;
+for (int i=0;i<SIZE;i++){
+    if (fC[i]>maxFriends){
+    maxFriends=fC[i];
+    bcp = st[i];
+    }
+}
+   cout<<bcp<<" is the broadcast point ";
+ return 0;
+}
